@@ -14,7 +14,7 @@ In this project, the end goal is to deploy our application manually using Elasti
 
 ### 1. Install Jenkins
 - Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
-- Install Jenkins Server using instructions here [link](https://pkg.jenkins.io/debian/)
+- Install Jenkins Server using instructions [HERE](https://pkg.jenkins.io/debian/)
 - Install the required version of Python:
      - `sudo apt install python3.10-venv`
 - You will need to get a key to set up Jenkins for the first time, run:
