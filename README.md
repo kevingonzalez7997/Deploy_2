@@ -55,21 +55,18 @@ Here, you can check if "Pipeline Utility Steps" is installed in the "Installed" 
 This is what it might look like without the plugins
 ![Screenshot 2023-08-26 095323](https://github.com/kevingonzalez7997/Deploy_2/assets/59447523/fbe29937-8e02-457f-b093-1569eabce07d)
 
-<h3>Getting the Zip File</h3>
+### Getting the Zip File
 
-<p>Once the program has passed all stages, follow the last step in the “Packaging the Output Files” section.</p>
+- Once the program has passed all stages, follow the last step in the “Packaging the Output Files” section
 
-<p>From your local PC, navigate to the terminal and change the directory to "ssh".</p>
+- From your local PC, navigate to the terminal and cd to "ssh"
+     - `cd .ssh`
+- If no authorization key has been generated yet, generate one now and copy the PUBLIC key (hint: it ends in .pub)
+     - `ssh-keygen`
+- In the EC2 instance, make sure to add the key to the authorization file in the ssh directory
 
-<p>If no authorization key has been generated yet, generate one now and copy the PUBLIC key (hint: it ends in .pub).</p>
-
-<p>In your EC2 instance, make sure to add the key to the authorization file in the ssh directory.</p>
-
-<p>Now you can request the file. Go back to the local terminal and run the following command:</p>
-
-<pre>
-scp user@publicIP:File/location/can/be/found/in/jenkins/console/ /path/on/local/terminal/
-</pre>
+- Go back to the local terminal and run the following command:
+  - `scp user@publicIP:File/location/can/be/found/in/jenkins/console/ /path/on/local/terminal/`
 
 <h3>IAM</h3>
 
