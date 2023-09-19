@@ -1,15 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <H1>ReadMe</H1>
-</head>
-<body>
+#  Deployment 2
+August 15. 2023
 
-<h2>Purpose</h2>
+Kevin Gonzalez
 
-<p>In this project, the end goal is to deploy our application manually using Elastic Beanstalk. Additionally, the program is tested through Jenkins, which runs on an EC2 instance to ensure the code is functioning correctly.</p>
+## Purpose:
 
-<h2>Issues</h2>
+In this project, the end goal is to deploy our application manually using Elastic Beanstalk. The process has been improved by sourcing the code directly from GitHub repository. Additionally, the program is tested through Jenkins, which runs on an EC2 instance to ensure the code is functioning correctly before deployment.
+
+## Prerequisites:
+
+
+## Steps
+
+### 1. Install Jenkins
+- Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
+- Install Jenkins Server using instructions here [link](https://pkg.jenkins.io/debian/)
+- Install the required version of Python:
+     - `sudo apt install python3.10-venv`
+- You will need to get a key to set up Jenkins for the first time, run:
+    - 'sudo cat  /var/lib/jenkins/secrets/initialAdminPassword'
+- Install suggested plug-ins
+- In addition to the suggested plugins Pipeline Utility Steps plugin is also required it can be installed by
+  - 'Dashboard > Managed Jenkins > Plugins > Available plugins'
+
+### 2. Connecting GitHub to Jenkins 
+
+- Most people use GitHub as their repository platform. Compared to the first deployment the program will not be uploaded locally. The code will be pulled from a GitHub repository that we have created as it is a more practical approach.
+- create a new item, and pick pipeline
+  - pipeline script from SCM
+      -SCM > Git (As the code will be pulled from the repo)
+- Copy and import the Repository URL
+- User Name will be Github user and the password is the generated key in GitHub
+- Branch to build should be */main
+
+### 4. Deploy AWS Elastic BeanStalk
+
+- Navigate to AWS Console then Elastic Beanstalk service
+- Create Application
+- Configuration details:
+    - Platform: Python - Python 3.9 running on 64bit Amazon Linux 2023
+     - Application code > Upload > Local file > Version: v1 > Upload zip file artifact
+     - Set ec2 Instance Profile to Elastic-EC2
+     - VPC: Default VPC
+     - Availability Zone: us-east-1a
+     - Root volume: General Purpose (SSD) > 10GB
 
 <p>Before you start, there are a set of prerequisites to minimize the chances of encountering bugs, especially during testing in Jenkins:</p>
 
@@ -37,16 +71,6 @@ Dashboard/Manage_jenkins/Plugins/
 
 <h3>Jenkins</h3>
 
-<p>First, run the code in Jenkins to ensure everything is functioning correctly before proceeding with manual deployment using ElasticBeanstalk.</p>
-
-<ul>
-  <li>Launch an EC2 instance on AWS</li>
-  <li>Update and/or upgrade packages</li>
-  <li>Install "openjdk-8-jdk"</li>
-  <li>Install "python3.10-venv" (this is important to install before proceeding)</li>
-  <li>Add Jenkins repository and install Jenkins</li>
-  <li>Install "Pipeline Utility Steps" from the plugin section</li>
-</ul>
 
 <h3>Getting the Zip File</h3>
 
@@ -91,8 +115,3 @@ scp user@publicIP:File/location/can/be/found/in/jenkins/console/ /path/on/local/
 </ul>
 
 <p>If everything worked correctly, you should now have access to the domain.</p>
-
-</body>
-</html>
-
-
