@@ -45,17 +45,15 @@ In this project, the end goal is to deploy our application manually using Elasti
      - Availability Zone: us-east-1a
      - Root volume: General Purpose (SSD) > 10GB
 ## Troubleshooting 
--Before you start, there are a set of prerequisites to minimize the chances of encountering bugs, especially during testing in Jenkins:</p>
-
-- Run the following commands to ensure everything is updated before installation:
+Before you start, there are a set of prerequisites to minimize the chances of encountering bugs, especially during testing in Jenkins:</p>
+Run the following commands to ensure everything is updated before installation:
   - `sudo apt update `
   -  `sudo apt upgrade `
- 
-- If the last two steps fail while testing in Jenkins, it's possible that plugins might not be installed. In addition to the suggested plugins, make sure to install "Pipeline Utility Steps" as well
+If the last two steps fail while testing in Jenkins, it's possible that plugins might not be installed. In addition to the suggested plugins, make sure to install "Pipeline Utility Steps" as well
 
-- Here, you can check if "Pipeline Utility Steps" is installed in the "Installed" section. If not, you can easily install it by searching for the plugin in the "Available" plugins section
-![Screenshot 2023-08-26 095323](https://github.com/kevingonzalez7997/Deploy_2/assets/59447523/fbe29937-8e02-457f-b093-1569eabce07d)
+Here, you can check if "Pipeline Utility Steps" is installed in the "Installed" section. If not, you can easily install it by searching for the plugin in the "Available" plugins section
 This is what it might look like without the plugins
+![Screenshot 2023-08-26 095323](https://github.com/kevingonzalez7997/Deploy_2/assets/59447523/fbe29937-8e02-457f-b093-1569eabce07d)
 
 <h3>Getting the Zip File</h3>
 
