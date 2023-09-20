@@ -68,6 +68,8 @@ In this project, the goal is to deploy an application manually using Elastic Bea
      - VPC: Default VPC
      - Availability Zone: us-east-1a
      - Root volume: General Purpose (SSD) > 10GB
+## Observations
+- In jenkins when the code was built there are four differnet steps that run
 
 ## Troubleshooting 
 
@@ -80,9 +82,6 @@ If the last two steps fail while testing in Jenkins, it's possible that plugins 
 Here, you can check if "Pipeline Utility Steps" is installed in the "Installed" section. If not, you can easily install it by searching for the plugin in the "Available" plugins section
 This is what it might look like without the plugins
 ![Screenshot 2023-08-26 095323](https://github.com/kevingonzalez7997/Deploy_2/assets/59447523/fbe29937-8e02-457f-b093-1569eabce07d)
-
-
-
 
 ## Optimization 
 
