@@ -5,11 +5,11 @@ Kevin Gonzalez
 
 ## Purpose:
 
-In this project, the goal is to deploy an application manually using Elastic Beanstalk. The process has been improved by sourcing the code directly from GitHub repository when testing in Jenkins. Jenkins is used to source code, build and zip the source code. This will minimize 
+In this project, the goal is to deploy an application manually using Elastic Beanstalk. The process has been improved by sourcing the code directly from GitHub repository when testing in Jenkins. Jenkins is used to source code, build, and zip the source code. This will minimize 
 ## Prerequisites:
 
 - Have EC2 instances running with Ubuntu
-- Best pratice have system up to date before installing anything
+- Best practice have the system up to date before installing anything
      -`sudo apt update`
      -`sudo apt updgrade`
 
@@ -22,13 +22,13 @@ In this project, the goal is to deploy an application manually using Elastic Bea
      - `sudo apt install python3.10-venv`
 - You will need to get a key to set up Jenkins for the first time, run:
      -  `sudo cat  /var/lib/jenkins/secrets/initialAdminPassword`
-- After accesing Jenkins through port 8080, install suggested plug-ins
+- After accessing Jenkins through port 8080, install the suggested plug-ins
 - In addition to the suggested plugins, Pipeline Utility Steps plugin is also required. It can be installed by:
   -  `Dashboard > Managed Jenkins > Plugins > Available plugins`
 
 ### 2. Connecting GitHub to Jenkins 
 
-- Most people use GitHub as their repository platform. Compared to the first deployment the program will not be uploaded locally to jenkins. The code will be pulled from a GitHub repository that we have created as it is a more practical approach.
+- Most people use GitHub as their repository platform. Compared to the first deployment the program will not be uploaded locally to Jenkins. The code will be pulled from a GitHub repository that we have created as it is a more practical approach.
 - create a new item, and select pipeline
   - Pipeline script from SCM
       - Then Git (As the code will be pulled from the repo)
@@ -53,7 +53,7 @@ In this project, the goal is to deploy an application manually using Elastic Bea
 - Starting with Elastic BeanStalk
   - Select type Elastic
   - Select Elastic BeanStalk
-- For the EC2 start by selcting EC2
+- For the EC2 start by selecting EC2
      - The necessary policies are AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier, and AWSElasticBeanstalkMulticontainerDocker
 
 ### 5. Deploy AWS Elastic BeanStalk
@@ -64,13 +64,20 @@ In this project, the goal is to deploy an application manually using Elastic Bea
      - Platform: Python
      - Python 3.9 running on 64bit Amazon Linux 2023
      - Upload your zipped file that was ssh from the instance
-     - Set ec2 Instance Profile to Elastic-EC2 (This is the role reated earlier)
+     - Set ec2 Instance Profile to Elastic-EC2 (This is the role created earlier)
      - VPC: Default VPC
      - Availability Zone: us-east-1a
      - Root volume: General Purpose (SSD) > 10GB
 ## Observations
-- In jenkins when the code was built there are four differnet steps that run
 
+- In Jenkins when the code was built there were four different stages that it went through
+     1. Checkout SCM: Jenkins connecting to GitHub and cloning the most recent repository
+     2. Build: Jenkins downloaded all the required files to run the program
+     3. Test: Jenkins ran a test file "test_app.py::test_home_page PASSED " and returned passed
+     4. Packaging the output files: Jenkins zips file after user confirmation
+
+![Screenshot 2023-09-20 172859](https://github.com/kevingonzalez7997/Deploy_2/assets/59447523/d22db87d-48b6-4500-bae1-5775d26ec73f)
+        
 ## Troubleshooting 
 
 Before you start, there are a set of prerequisites to minimize the chances of encountering bugs, especially during testing in Jenkins:</p>
@@ -85,4 +92,4 @@ This is what it might look like without the plugins
 
 ## Optimization 
 
-There is room for improvements in this CICD pipeline. For starters the code is still being manually and locally uploaded into the Elastic Load balancer. In order for CICD pipeline to be successful, any process that could be automated should be. We are still able to automate the deployment further more by making it rebuild, test, and deploy when a change is made to the code. we should also consider adding a monitor system in case something crashes.
+There is room for improvement in this CICD pipeline. For starters, the code is still being manually and locally uploaded into the Elastic Load balancer. In order for CICD pipeline to be successful, any process that could be automated should be. We are still able to automate the deployment further by making it rebuild, test, and deploy when a change is made to the code. we should also consider adding a monitor system in case something crashes.
