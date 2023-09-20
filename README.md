@@ -36,7 +36,7 @@ In this project, the goal is to deploy an application manually using Elastic Bea
 - User Name will be Github user and the password is the generated key in GitHub
 - Branch to build should be */main
 
-### 3. Getting the Zip File
+### 3. ssh the Zip File from EC2 to local
 
 - Once the program has passed all stages, follow the last step in the “Packaging the Output Files” section to complete zip process 
 - From your local PC, navigate to the terminal and cd to "ssh"
