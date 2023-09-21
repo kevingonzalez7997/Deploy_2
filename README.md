@@ -5,7 +5,8 @@ Kevin Gonzalez
 
 ## Purpose:
 
-In this project, the goal is to deploy an application manually using Elastic Beanstalk. The process has been improved by sourcing the code directly from GitHub repository when testing in Jenkins. Jenkins is used to source code, build, and zip the source code. This will minimize 
+In this project, the objective is to deploy an application manually using Elastic Beanstalk. The process has been enhanced by cloning the code directly from a GitHub repository during testing in Jenkins. Jenkins is used to extract the code, build it, and then zip the source code. This approach minimizes the margin for error by zipping and uploading the code after it has undergone testing.
+
 ## Prerequisites:
 
 - Have EC2 instances running with Ubuntu
@@ -38,18 +39,18 @@ In this project, the goal is to deploy an application manually using Elastic Bea
 
 ### 3. ssh the Zip File from EC2 to local
 
-- Once the program has passed all stages, follow the last step in the “Packaging the Output Files” section to complete zip process 
+- Once the program has passed all stages, follow the last step in the “Packaging the Output Files” section to complete the zip process 
 - From your local PC, navigate to the terminal and cd to "ssh"
      - `cd .ssh`
 - If no authorization key has been generated yet, generate one now and copy the PUBLIC key (hint: it ends in .pub)
      - `ssh-keygen`
-- In the EC2 instance, make sure to add the key to the `authorization_file` located in the ssh directory
+- In the EC2 instance, make sure to add the PUBLIC key to the `authorization_file` located in the ssh directory
 - Go back to the local terminal and run the following command:
   - `scp user@publicIP:File/location/can/be/found/in/jenkins/console/ /path/on/local/terminal/`
 
 ### 4. IAM Roles
 - IAM roles in AWS serve a crucial purpose in managing and securing access to AWS resources
-- Two roles are needed to run: one for Elastic Beanstalk and one for the EC2 instance
+- Two roles are needed: one for Elastic Beanstalk and one for the EC2 instance
 - Starting with Elastic BeanStalk
   - Select type Elastic
   - Select Elastic BeanStalk
@@ -92,4 +93,4 @@ This is what it might look like without the plugins
 
 ## Optimization 
 
-There is room for improvement in this CICD pipeline. For starters, the code is still being manually and locally uploaded into the Elastic Load balancer. In order for CICD pipeline to be successful, any process that could be automated should be. We are still able to automate the deployment further by making it rebuild, test, and deploy when a change is made to the code. we should also consider adding a monitor system in case something crashes.
+There is room for improvement in this CI/CD pipeline. Firstly, the code is still being uploaded manually and locally to the Elastic LoadBalancer. To ensure the success of the CI/CD pipeline, any process that can be automated should be automated. Furthermore, we can enhance automation by enabling the pipeline to rebuild, test, and deploy automatically whenever a code change is made. Additionally, it would be good practice to incorporate a monitoring system to minimize downtime.
