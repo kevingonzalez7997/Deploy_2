@@ -93,4 +93,8 @@ This is what it might look like without the plugins
 
 ## Optimization 
 
-There is room for improvement in this CI/CD pipeline. Firstly, the code is still being uploaded manually and locally to the Elastic LoadBalancer. To ensure the success of the CI/CD pipeline, any process that can be automated should be automated. Furthermore, we can enhance automation by enabling the pipeline to rebuild, test, and deploy automatically whenever a code change is made. Additionally, it would be good practice to incorporate a monitoring system to minimize downtime.
+There is room for improvement in this CI/CD pipeline. Firstly, the code is still being uploaded manually and locally to the Elastic Beanstalk. To ensure the success of the CI/CD pipeline, any process that can be automated should be automated. Furthermore, we can enhance automation by enabling the pipeline to rebuild, test, and deploy automatically whenever a code change is made. Additionally, it would be good practice to incorporate a monitoring system to minimize downtime.
+
+## Conclusion
+
+In conclusion, the application was able to be launched manually with the use of Elastic Beanstalk. The code was cloned from GitHub after generating a key in order to give Jenkins access. Jenkins was used to build and test the code to ensure functionality.
