@@ -11,8 +11,8 @@ In this project, the objective is to deploy an application manually using Elasti
 
 - Have EC2 instances running with Ubuntu
 - Best practice have the system up to date before installing anything
-     -`sudo apt update`
-     -`sudo apt updgrade`
+     - `sudo apt update`
+     - `sudo apt updgrade`
 
 ## Steps
 
